@@ -12,6 +12,7 @@ server.get('/', async (req, res) => {
   try {
     const shoutouts = await db('shoutouts');
     const messageOfTheDay = process.env.MOTD || 'Hello for Heruko!';
+    res.status(200).json({ motd: messageOfTheDay, shoutouts });
     // res.status(200).json(shoutouts);
   } catch (error) {
     console.error('\nERROR', error);
